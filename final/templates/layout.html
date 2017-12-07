@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<style>
+body {margin:0;}
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+ul.topnav li a:hover {background-color: #555;}
+
+ul.topnav li.icon {display: none;}
+
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+</style>
+
+    <head>
+
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta -->
+        <meta charset="utf-8"/>
+        <meta content="initial-scale=1, width=device-width" name="viewport"/>
+
+        <!-- documentation at http://getbootstrap.com/, alternative themes at https://www.bootstrapcdn.com/bootswatch/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+
+        <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <title>Albert Finance: {% block title %}{% endblock %}</title>
+        
+    </head>
+
+    <body>
+                        {% if session.user_id %}
+                        <ul class="topnav" id="myTopnav">
+                              <li><a class="active" href="{{ url_for("product") }}">Product</a></li>
+                              <li><a class="active" href="{{ url_for("order") }}">Create an order</a></li>
+                              <li><a class="active" href="{{ url_for("news") }}">News in your industry</a></li>
+                              <li><a class="active" href="{{ url_for("logout") }}">Log out</a></li>
+                        </ul>
+                        {% else %}
+                        <ul class="topnav" id="myTopnav">
+                              <li><a class="active" href="{{ url_for("login") }}">Login</a></li>
+                              <li><a href="{{ url_for("register") }}">Register</a></li>
+                        </ul>
+                        {% endif %}
+                {% block main %}{% endblock %}.
+    </body>
+</html>

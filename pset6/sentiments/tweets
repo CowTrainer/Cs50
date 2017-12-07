@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+import helpers
+import application
+import sys
+from analyzer import Analyzer
+import os
+from termcolor import colored
+
+if len(sys.argv) != 2:
+    sys.exit("Usage ./tweets word")
+screen_name = sys.argv[1]
+screen_name.lstrip("@")
+positives = os.path.join(sys.path[0], "positive-words.txt")
+negatives = os.path.join(sys.path[0], "negative-words.txt")
+if(helpers.get_user_timeline(screen_name, 50)==None):
+    sys.exit("unable to get twitter handle")
+x = helpers.get_user_timeline(screen_name, 50)
+count1=0
+analyzer = Analyzer(positives, negatives)
+for count1 in range(len(x)):
+    score = analyzer.analyze(x[count1])
+    if score > 0.0:
+        sys.stdout.write(colored(score, "green"))
+        sys.stdout.write(" ")
+        print(colored(x[count1], "green"))
+    elif score < 0.0:
+        sys.stdout.write(colored(score, "red"))
+        sys.stdout.write(" ")
+        print(colored(x[count1], "red"))
+    else:
+        sys.stdout.write(colored(score, "yellow"))
+        sys.stdout.write(" ")
+        print(colored(x[count1], "yellow"))
+    
+    
+    

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add more
+{% endblock %}
+
+{% block main %}
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+    <form action="{{ url_for('more') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <label for="quantity">Quantity to add</label>
+                <input autocomplete="off" autofocus class="form-control" name="num" placeholder="Quantity" type="text"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add">
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

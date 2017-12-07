@@ -1,0 +1,9 @@
+questions.txt
+
+Computer Science 50
+Problem Set 3
+
+0. Besides 4 × 4 the program allows 3 x 3, 5 x 5, 6 x 6, 7 x 7, 8 x 8 and 9 x 9
+1. The game board is represented ina 2d array
+2. The function greet is called to greet the player
+3. You need to implement init, draw, move, won

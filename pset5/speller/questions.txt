@@ -1,0 +1,10 @@
+0.  It a lung disease and also the longest word in english
+1.  the function getrusage return's usage measures for processes
+2.  There are 16 in total, 2 structs and 14 long's
+3.  We save a bit of memory by passing a refrence instead of a value which would require making a copy of the value
+4.  The main function loads the textfile and dictionary.Then it starts reading the text symbol by symbol.
+    If the character is a digit or the word is too long to be a word the word will ignored.
+    Finally if there are no numbers, the word is not too long and the word only contains letters and apostrophes(not at the start)
+    it will put a NULL terminator at the end time it and check the word for misspellings.If the word is not found in the dictionary it will be printed and the misspellings count will increase by 1.
+5.  We use fgetc because rather than fscanf because some words will end in a comma or a period which fscanf will recognize as part of the word which we don't want.
+6.  You declare it as a constant because we never change the pointers in load or check

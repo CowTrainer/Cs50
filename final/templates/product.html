@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Product
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <table class  = "table table-hover">
+        <thead>
+            <tr>
+                <th>Product/Service Name</th>
+                <th>Type</th>
+                <th>Cost</th>
+                <th>List</th>
+                <th>Quanity</th>
+                <th></th>
+            </tr>
+        </thead>
+        {% for x in range(result|length) %}
+            <tbody>
+            <tr>
+                {% set product = result[x]["product_name"] %}
+                <td>{{ product }}</td>
+                <td>{{ result[x]["type"] }}</td>
+                <td>{{ result[x]["cost"] }}</td>
+                <td>{{ result[x]["list"] }}</td>
+                <td>{{ result[x]["Quantity"] }}</td>
+                <td>
+                <form action="{{ url_for('product_redirect') }}" method="post">
+                    <input type="hidden" name="name" value = "{{ product }}">
+                    <input type="submit" value="Edit"/>
+                </form>
+                <form action="{{ url_for('more_redirect') }}" method="post">
+                    <input type="hidden" name="product" value = "{{ product }}" >
+                    <input type="submit" value="Add more"/>
+                </form>
+                </td>
+            </tr>
+            </tbody>
+        {% endfor %}
+        <tfoot>
+                <tr>
+                    <td colspan = "4"></td>
+                    <td>
+                        <form action="{{ url_for('product_new') }}" method="post/get">
+                            <input type="submit" value="Create New"/>
+                        </form>
+                    </td>
+                </tr>
+        </tfoot>
+    </table>
+</div>
+{% endblock %}

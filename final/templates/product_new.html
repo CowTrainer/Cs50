@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create product
+{% endblock %}
+
+{% block main %}
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+        <form action="{{ url_for('product_new') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <label for="name">Product Name</label>
+                <input autocomplete="off" autofocus class="form-control" name="name" placeholder="Product name" type="text"/>
+            </div>
+            <label for="type">Product type</label>
+            <select name="product_type" id="type_dropdown">
+              <option selected="selected">Product</option>
+              <option>Service</option>>
+            </select>
+            <div class="form-group">
+                <label for="cost">Cost</label>
+                <input class="form-control" name="cost" placeholder="Cost" type="text" />
+            </div>
+            <div class="form-group">
+                <label for="list">List</label>
+                <input class="form-control" name="list" placeholder="List" type="text" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create">
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

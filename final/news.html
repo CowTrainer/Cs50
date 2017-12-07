@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    News in your industry
+{% endblock %}
+
+{% block main %}
+    {% for x in news %}
+        <center><a href={{ link }}>{{ news[loop.index0]["title"] }}</a></center>
+    {% endfor %}
+
+{% endblock %}

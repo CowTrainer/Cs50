@@ -1,0 +1,12 @@
+1.  stidint.h defines a set of interger types with width's of a specific amount of bits
+2.  The point is that it makes clear to people exactly how many bits you intend to use
+3.  BYTE = 1 Byte, DWORD = 4 Bytes, LONG = 4 bytes, WORD=4 Bytes
+4.  The two first bytes of any BMP file is the letter B and the letter M in ASCII
+5.  BfSize is the total amount of bytes in the file and BiSize is the number of bytes in the info header
+6.  If biHeight is negative the bitmap is a Top Down DIB(Meaning the top row of the bitmap is the first row) and its origin is in the top left corner
+7.  BiBItCount defines BITMAPINFOHEADER's bits per pixel
+8.  For line 24 the input file could not exist or not be openable and for line 32 it could not be able to create and open the output file
+9.  It is because we are reading only 1 struct.If we were reading 5 it would be 5 instead of 1
+10. It assigns padding to a value of 1
+11. fseek changes the position of a pointer in a file depending on the offset and the origin(SEEK_SET,SEEK_CUR,SEEK_END) 
+12. SEEK_CUR is the current postion of the file pointer 

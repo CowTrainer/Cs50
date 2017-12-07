@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+    <form action="{{ url_for('register') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <label for="company_name">Company Name</label>
+                <input autocomplete="off" autofocus class="form-control" name="company_name" placeholder="Example: The Money Company" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" name="email" placeholder="example: example@gmail.com" type="email"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" name="password" placeholder="Password" type="password"/>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input class="form-control" name="location" placeholder="Example: 864 Example St" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="money">Money</label>
+                <input class="form-control" name="money" placeholder="Money" type="text"/>
+            </div>
+            <label for="industry">Company Type</label>
+            <select name="industry" id="Dropdown">
+              <option>Gaming</option>
+              <option>Oil</option>
+              <option>Food</option>
+              <option>Coffe</option>
+              <option>None</option>
+            </select>
+            <div class="form-group">
+                <input value="Register" type="submit"></button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}
